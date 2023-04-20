@@ -7,7 +7,7 @@ app.use(bodyParser.json());
 
 // Routes
 app.post("/posts", controller.createPost);
-app.get("/users/:userId/posts", controller.listUserPosts);
+app.get("/users/:UserId/posts", controller.listUserPosts);
 app.get("/posts/top", controller.listTopPosts);
 app.post("/posts/:id/reviews", controller.addPostReview);
 
