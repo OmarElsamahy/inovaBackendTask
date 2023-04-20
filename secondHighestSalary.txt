@@ -1,0 +1,13 @@
+Given table 
+Employee -> {id, salary}; id is the primary key
+Write an SQL query to report the second highest salary from the Employee table. If there is no second highest salary, the query should report NULL
+
+SELECT MAX(salary) AS second_highest_salary
+FROM Employee
+WHERE salary < (SELECT MAX(salary) FROM Employee);
+
+Explanation:
+
+The subquery (SELECT MAX(salary) FROM Employee) will get the highest salary from Employee table.
+The main query will select the max salary that is less than the highest salary retrieved by the subquery. giving second highest salary.
+If there is no salary that is less than the highest salary, the query will return NULL.
