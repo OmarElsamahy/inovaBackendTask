@@ -1,19 +1,10 @@
 const { Sequelize } = require("sequelize");
-const sequelize = new Sequelize({
-  dialect: "postgres",
+// these values should be in dotenv but for speed i just added them here
+const sequelize = new Sequelize("inovaTest", "postgres", "0100name", {
   host: "localhost",
-  port: 5432,
-  username: "omar",
-  password: "0100name",
-  database: "<your-database>",
-  logging: false, // Set to true to log SQL queries
+  dialect: "postgres",
 });
 
-sequelize
-  .sync()
-  .then((result) => {
-    console.log("Connected ");
-  })
-  .catch((err) => {
-    console.log("Error Connecting to database");
-  });
+module.exports = {
+  sequelize,
+};

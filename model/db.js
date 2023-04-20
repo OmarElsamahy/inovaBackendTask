@@ -1,4 +1,6 @@
 // Define the User schema
+const { sequelize } = require("../config/dbconfig");
+const { DataTypes } = require("sequelize");
 const User = sequelize.define("User", {
   id: {
     type: DataTypes.INTEGER,
@@ -54,3 +56,18 @@ Review.belongsTo(Post);
 
 User.hasMany(Review);
 Review.belongsTo(User);
+
+sequelize
+  .sync()
+  .then((result) => {
+    console.log("Connected ");
+  })
+  .catch((err) => {
+    console.log("Error Connecting to database , \n", err);
+  });
+
+module.exports = {
+  User,
+  Post,
+  Review,
+};
