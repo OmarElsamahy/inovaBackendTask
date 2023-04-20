@@ -8,23 +8,23 @@ async function seed() {
 
   // create 50k posts
   for (let i = 1; i <= 50000; i++) {
-    const userId = Math.ceil(Math.random() * 100); // assign a random user ID to each post
+    const UserId = Math.ceil(Math.random() * 100); // assign a random user ID to each post
     await Post.create({
       title: `Post ${i}`,
       body: `This is the body of post ${i}.`,
-      userId,
+      UserId,
     });
   }
 
   // create 20k reviews
   for (let i = 1; i <= 20000; i++) {
-    const postId = Math.ceil(Math.random() * 50000); // assign a random post ID to each review
-    const userId = Math.ceil(Math.random() * 100); // assign a random user ID to each review
+    const PostId = Math.ceil(Math.random() * 50000); // assign a random post ID to each review
+    const UserId = Math.ceil(Math.random() * 100); // assign a random user ID to each review
     await Review.create({
       rating: Math.ceil(Math.random() * 5), // assign a random rating between 1 and 5
       comment: `This is the comment for review ${i}.`,
-      postId,
-      userId,
+      PostId,
+      UserId,
     });
   }
 
